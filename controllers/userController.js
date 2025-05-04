@@ -45,7 +45,7 @@ exports.registerUser = async (req, res) => {
       `INSERT INTO users 
        (name, email, password, phone, role, verification_token) 
        VALUES ($1, $2, $3, $4, $5, $6) 
-       RETURNING id, name, email, phone, role, created_at`,
+       RETURNING id, name, email, phone, role, created_at, verification_token`,
       [name, email, hashedPassword, phone, role, verificationToken],
     );
 
