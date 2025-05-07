@@ -13,7 +13,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === 'production'
-        ? 'https://your-production-url.com'
+        ? 'https://stylespizza.vercel.app/'
         : 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, // Allow cookies
