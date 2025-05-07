@@ -25,7 +25,7 @@ exports.authenticate = async (req, res, next) => {
 
         // Attach user info to the request object for further use
         req.user = userResult.rows[0];
-        console.log("Req.user (authenticated): ", req.user); // Debugging log
+        // console.log("Req.user (authenticated): ", req.user); // Debugging log
         next();
     } catch (error) {
         // If any error occurs during verification or user retrieval, respond with an invalid token error
