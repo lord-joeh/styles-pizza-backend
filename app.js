@@ -12,9 +12,10 @@ const app = express();
 app.use(
   cors({
     origin:
-      ~'http://localhost:3000' ||
-      'https://l0mgm267-3000.uks1.devtunnels.ms/' ||
-      'https://2c8fbb254d6229.lhr.life',
+      process.env.NODE_ENV === 'production'
+        ? 'https://your-production-url.com'
+        : 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, // Allow cookies
   }),
 );
