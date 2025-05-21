@@ -14,12 +14,13 @@ const {
 } = require('../controllers/userController');
 const { authenticate, authorize } = require('../middleware/authMiddleware');
 const { validateRegistration } = require('../middleware/validationMiddleware');
+const {loginLimiter} = require('../middleware/rateLimiter')
 
 
 // Public routes
 router.post('/register', validateRegistration, registerUser);
 router.get('/verify-email', verifyEmail);
-router.post('/login', loginUser);
+router.post('/login',loginLimiter, loginUser);
 router.post('/forgot-password', forgotPassword);
 router.post('/reset-password', resetPassword);
 
